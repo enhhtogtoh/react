@@ -1,14 +1,22 @@
-export const Card = () => {
+export const Card = ({ cardName }) => {
   return (
     <div
       style={{
-        width: "336px",
+        width: "466px",
         height: "72px",
         padding: "16px",
         gap: "8px",
-        // backgroundColor: "aqua",
+
         display: "flex",
         justifyContent: "space-between",
+        border: "1px solid black",
+        borderTop: "1px",
+        borderLeft: "1px",
+        borderRight: "1px",
+        gap: "8px",
+        position: "relative",
+        bottom: "700px",
+        left: "140px",
       }}
     >
       <div
@@ -19,7 +27,7 @@ export const Card = () => {
           alignItems: "center",
         }}
       >
-        John Cena
+        {cardName}
       </div>
       <div
         style={{

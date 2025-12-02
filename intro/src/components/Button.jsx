@@ -1,4 +1,4 @@
-export const Button = () => {
+export const Button = ({ button }) => {
   return (
     <button
       style={{
@@ -9,9 +9,12 @@ export const Button = () => {
         color: "white",
         borderRadius: "8px",
         fontSize: "18px",
+        position: "absolute",
+        bottom: "300px",
+        left: "490px",
       }}
     >
-      Reset
+      {button}
     </button>
   );
 };
