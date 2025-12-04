@@ -23,14 +23,14 @@ export const About = () => {
         >
           <div
             id="left-container"
-            className="w-[584] min-w-[444] flex justify-center items-center"
+            className="w-[584] min-w-[444] flex justify-center "
           >
-            <div id="picture" className="relative w-fit h-fit bottom-10">
-              <div className="w-[400] h-[480] border-8 border-white bg-gray-200 absolute top-10 right-10 -z-10"></div>
+            <div id="picture" className=" w-fit h-fit ">
+              {/* <div className="w-[400] h-[480] border-8 border-white bg-gray-200 absolute top-10 right-10 -z-10"></div> */}
               <img
                 src="/25LP5729.jpg"
                 alt="profile"
-                className="w-[400] h-[480] object-cover border-8 border-white  "
+                className="w-[400] h-[480] object-cover border-8 border-white  shadow-[-30px_30px_#E5E7EB]"
               />
             </div>
           </div>

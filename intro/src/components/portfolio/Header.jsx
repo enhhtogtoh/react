@@ -7,9 +7,10 @@ const rubik = Rubik_Mono_One({
 export const Header = () => {
   return (
     <div className="w-full h-17 flex items-center justify-center ">
-      <div className="w-7xl h-9  flex justify-between px-8  items-center">
-        <div className={rubik.className}>Tok</div>
-        <div className="w-[554px] h-9 gap-6 flex items-center ">
+      <div className="w-7xl h-9  flex justify-between px-8  items-center pr-4">
+        <div className={rubik.className}>TOK</div>
+        <img src="./3tseg.png" alt="3tseg" className="hidden max-sm:block" />
+        <div className="w-[554px] h-9 gap-6 flex items-center max-sm:hidden">
           <div className="text-gray-600 cursor-pointer">About</div>
           <div className="text-gray-600 cursor-pointer">Work</div>
           <div className="text-gray-600 cursor-pointer">Testimonials</div>
