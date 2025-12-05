@@ -3,11 +3,10 @@ import { Hero } from "@/components/portfolio/Hero";
 import { About } from "@/components/portfolio/About";
 import { Skill } from "@/components/portfolio/Skills";
 import { Experiences } from "@/components/portfolio/Experience";
-// import { Work, Work1, Work2 } from "@/components/portfolio/Work-data";
+import { Work_title } from "@/components/portfolio/Work-title";
 import { Works } from "@/components/portfolio/Work";
 import { Contact } from "@/components/portfolio/Contact-me";
 import { Footer } from "@/components/portfolio/Footer";
-
 const Home = () => {
   return (
     <div>
@@ -16,8 +15,8 @@ const Home = () => {
       <About />
       <Skill />
       <Experiences />
+      <Work_title />
       <Works />
-
       <Contact />
       <Footer />
     </div>

@@ -31,9 +31,6 @@ export const Skills = [
     image: "/icon-socket.svg",
     name: "Socket.io",
   },
-];
-
-export const Skills1 = [
   {
     image: "/icon-postgresql.svg",
     name: "PostgreSQL",
