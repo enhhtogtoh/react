@@ -46,7 +46,7 @@ export const Work_title = () => {
                   {item.title}
                 </p>
                 <p className="text-base text-gray-600">{item.main}</p>
-                <p className="flex gap-2 flex-wrap ">
+                <div className="flex gap-2 flex-wrap ">
                   {" "}
                   {item.category.map((text, i) => (
                     <div
@@ -56,7 +56,7 @@ export const Work_title = () => {
                       {text}
                     </div>
                   ))}{" "}
-                </p>
+                </div>
                 <img src={item.link} alt="" className="w-9 h-9" />
               </div>
             ))}
