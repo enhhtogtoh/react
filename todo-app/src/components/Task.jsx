@@ -1,44 +1,25 @@
 import React from "react";
 
-export const Task = () => {
+export const Task = ({ task, toggleCompleted, deleteTask }) => {
   return (
-    <div className="flex flex-col gap-5 ">
-      <div className="w-[345] h-[62] rounded-md bg-[#F9FAFB] flex flex-row justify-between items-center p-4">
-        <div
-          className="flex gap-[10] justify-center items-center
-        "
-        >
-          <input type="checkbox" />
-          <p>Create PR 2</p>
-        </div>
-        <button className="w-[67] h-[30] rounded-md bg-[#FEF2F2] text-[#ef4444] flex justify-center items-center">
-          Delete
-        </button>
+    <div className="task-item  flex justify-between h-[62px] w-[345px] items-center rounded-md ">
+      <div className="flex items-center gap-3 bg-[#f9FAFB] p-4">
+        <input
+          type="checkbox"
+          checked={task.isCompleted}
+          className="h-5 w-5"
+          onChange={() => toggleCompleted(task.id)}
+        />
+
+        <span className={task.isCompleted ? "completed" : ""}>{task.text}</span>
       </div>
-      <div className="w-[345] h-[62] rounded-md bg-[#F9FAFB] flex flex-row justify-between items-center p-4">
-        <div
-          className="flex gap-[10] justify-center items-center
-        "
-        >
-          <input type="checkbox" />
-          <p>Create PR 2</p>
-        </div>
-        <button className="w-[67] h-[30] rounded-md bg-[#FEF2F2] text-[#ef4444] flex justify-center items-center">
-          Delete
-        </button>
-      </div>
-      <div className="w-[345] h-[62] rounded-md bg-[#F9FAFB] flex flex-row justify-between items-center p-4">
-        <div
-          className="flex gap-[10] justify-center items-center
-        "
-        >
-          <input type="checkbox" />
-          <p>Create PR 2</p>
-        </div>
-        <button className="w-[67] h-[30] rounded-md bg-[#FEF2F2] text-[#ef4444] flex justify-center items-center">
-          Delete
-        </button>
-      </div>
+
+      <button
+        onClick={() => deleteTask(task.id)}
+        className="delete-btn  text-[#EF4444] h-[30px] py-1.5 px-3 rounded-md bg-[#FEF2F2] flex items-center justify-center hover:truncate"
+      >
+        Delete
+      </button>
     </div>
   );
 };

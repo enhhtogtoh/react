@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const Input = ({ updateTask, taskListValue }) => {
+export const Form = ({ updateTaskList, taskListValue }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleSubmit = (e) => {
@@ -18,21 +18,17 @@ export const Input = ({ updateTask, taskListValue }) => {
   };
 
   return (
-    <div id="input-container " className="w-[345] h-[38] flex gap-[6] ">
+    <form onSubmit={handleSubmit} className=" flex gap-2.5">
       <input
-        value={inputValue}
-        onChange={handleChange}
         type="text"
+        className="task-input form py-2 px-4 border rounded-md h-10 w-[280px] border-[#F9F9F9] text-sm"
         placeholder="Add a new task..."
-        className="border rounded-md w-[280] h-[40] border-gray-100 pl-[16] "
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
       />
-      <button
-        onClick={handleSubmit}
-        className="w-[59] h-[40] py-2 px-4 bg-[#3C82F6]  rounded-md text-white"
-        type="submit"
-      >
+      <button className="px-3 py-1 rounded-md border transition bg-[#3C82F6] border-none text-white hover:cursor-pointer text-sm">
         Add
       </button>
-    </div>
+    </form>
   );
 };
