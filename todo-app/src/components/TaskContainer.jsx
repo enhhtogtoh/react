@@ -21,6 +21,11 @@ export const TaskContainer = ({
 
   return (
     <div className="task-list">
+      {filteredTasksValue.length === 0 && (
+        <p className="text-[#6B7280] text-center py-4 text-sm">
+          No tasks yet. Add one above!
+        </p>
+      )}
       {filteredTasksValue.map((task) => (
         <Task
           key={task.id}

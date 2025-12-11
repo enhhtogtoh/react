@@ -28,18 +28,15 @@ export const Home = () => {
 
   return (
     <div className="container flex justify-center items-start min-h-screen ">
-      <div className="inner-container w-[377px] flex flex-col mt-20 p-6 bg-white rounded-lg drop-shadow-md gap-6">
+      <div className="inner-container w-[377px] flex flex-col mt-20 py-6 px-4 bg-white rounded-lg drop-shadow-md gap-5">
         <h1 className="title font-semibold flex justify-center text-xl">
           To-Do List
         </h1>
-
         <Form updateTaskList={setTaskList} taskListValue={taskList} />
-
         <Filter
           activeFilterValue={currentFilter}
           updateCurrentFilter={setCurrentFilter}
         />
-
         <TaskContainer
           filteredTasksValue={filteredTasks}
           taskListValue={taskList}
@@ -52,7 +49,6 @@ export const Home = () => {
             taskListValue={taskList}
           />
         )}
-
         <div className="footer flex justify-center justify-self-end gap-1 mt-4 text-sm text-gray-500">
           <span>Powered by</span>
           <span className="text-blue-500">Tok</span>
