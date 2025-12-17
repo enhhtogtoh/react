@@ -1,4 +1,10 @@
-export const Footer = ({ handleClick, handlePrev, totalSteps, step }) => {
+export const Footer = ({
+  handleClick,
+  handlePrev,
+  totalSteps,
+  step,
+  handleSubmit,
+}) => {
   return (
     <div className="flex gap-3 flex-row-reverse">
       {" "}

@@ -1,5 +1,5 @@
 import { Header } from "../layer/Header";
-export const ProfileInfo = () => {
+export const ProfileInfo = ({ handleChange }) => {
   return (
     <div>
       <Header />
@@ -11,7 +11,8 @@ export const ProfileInfo = () => {
           <input
             type="date"
             placeholder="--/--/--"
-            name="calendar"
+            name="dateOfBirth"
+            onChange={handleChange}
             className=" w-full h-10 text-base rounded-md p-3 border border-[#CBD5E1]"
           />
         </div>
@@ -23,6 +24,7 @@ export const ProfileInfo = () => {
           <input
             type="file"
             name="profile"
+            onChange={handleChange}
             className="w-full h-45 bg-[#7F7F800D] rounded-md border border-[#CBD5E1] cursor-pointer"
             placeholder="Browser or Drop Image"
           />
