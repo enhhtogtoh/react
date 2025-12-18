@@ -2,23 +2,27 @@
 import { Header } from "@/components/layer/Header";
 import { validateStepOne } from "@/utils/validators";
 import { ErrorMessage } from "../ui/ErrorMessage";
+import { Footer } from "../layer/Footer";
 export const ContactInfo = ({
   handleChange,
   formValues,
   formErrors,
+  totalSteps,
+  step,
   handleClick,
   setFormErrors,
+  handlePrev,
 }) => {
   const handleSubmit = () => {
     const { errors, isValid } = validateStepOne(formValues);
-
+    console.log({ isValid });
     setFormErrors(errors);
 
     if (isValid) {
       handleClick();
     }
   };
-  console.log(formErrors);
+
   return (
     <div>
       <Header />
@@ -72,7 +76,14 @@ export const ContactInfo = ({
           <ErrorMessage message={formErrors.username} />
         </div>
       </div>
-      <button onClick={handleSubmit}>submit</button>
+
+      <Footer
+        handleSubmit={handleSubmit}
+        totalSteps={totalSteps}
+        step={step}
+        handlePrev={handlePrev}
+      />
     </div>
   );
 };
+export const savedFromData = () => {};

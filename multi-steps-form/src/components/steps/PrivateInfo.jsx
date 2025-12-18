@@ -1,12 +1,16 @@
 import { Header } from "../layer/Header";
 import { validateStepTwo } from "@/utils/validators";
 import { ErrorMessage } from "../ui/ErrorMessage";
+import { Footer } from "../layer/Footer";
 export const PrivateInfo = ({
   handleChange,
   formValues,
   formErrors,
+  totalSteps,
+  step,
   setFormErrors,
   handleClick,
+  handlePrev,
 }) => {
   const handleSubmit = () => {
     const { errors, isValid } = validateStepTwo(formValues);
@@ -86,7 +90,12 @@ export const PrivateInfo = ({
           <ErrorMessage message={formErrors.confirmPassword} />
         </div>
       </div>
-      <button onClick={handleSubmit}>submit</button>
+      <Footer
+        handleSubmit={handleSubmit}
+        totalSteps={totalSteps}
+        step={step}
+        handlePrev={handlePrev}
+      />
     </div>
   );
 };

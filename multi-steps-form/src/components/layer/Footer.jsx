@@ -1,17 +1,14 @@
-export const Footer = ({
-  handleClick,
-  handlePrev,
-  totalSteps,
-  step,
-  handleSubmit,
-}) => {
+export const Footer = ({ handlePrev, totalSteps, step, handleSubmit }) => {
   return (
     <div className="flex gap-3 flex-row-reverse">
-      {" "}
-      {step > -2 && (
+      {step >= 0 && (
         <button
           className="w-full h-[44] flex justify-center items-center px-3 py-[10] gap-2 rounded-md bg-[#121316] text-white cursor-pointer"
-          onClick={handleClick}
+          // onClick={handleSubmit}
+          // onChange={handleSubmit}
+          // onClick={step === step ? handleSubmit : handleClick}
+          // onClick={handleSubmit}
+          onClick={handleSubmit}
         >
           Continue {step + 1}/{totalSteps - 1}
           <img src="./chevron_right.png" alt="chevron_right" className="" />
