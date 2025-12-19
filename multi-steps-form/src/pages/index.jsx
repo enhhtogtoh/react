@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import {
   ContactInfo,
   PrivateInfo,
@@ -7,19 +7,27 @@ import {
 } from "@/components/steps";
 import { initialValues } from "@/constants/initial";
 const Home = () => {
-  // PHOTO STATE
-  const inputRef = useRef();
-  const [imageUrl, setImageUrl] = useState("");
-
   //STEP VALUE
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(2);
 
   //KEY VALUE
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState(initialValues);
-
+  // console.log(formValues);
   //PHOTO DRAGGING
   const [isDragging, setIsDragging] = useState(false);
+
+  // PHOTO STATE
+  const inputRef = useRef();
+  const [imageUrl, setImageUrl] = useState("");
+
+  //SAVE FROM DATA
+  const handleSubmit = () => {
+    localStorage.setItem(
+      "saveFromData",
+      JSON.stringify({ ...formValues, step: step + 1 })
+    );
+  };
 
   // PHOTO CLICK
   const handleBrowserClick = () => {
@@ -27,7 +35,13 @@ const Home = () => {
       inputRef.current.click();
     }
   };
-  const handleChanges = (event) => {
+
+  const handleUploadedImage = (file) => {
+    const imageUrl = URL.createObjectURL(file);
+    setImageUrl(imageUrl);
+    setFormValues((previous) => ({ ...previous, profile: imageUrl }));
+  };
+  const handleImageChange = (event) => {
     const uploadedImage = Array.from(event.target.files).at(0);
     // if (!uploadedImage) return;
 
@@ -68,12 +82,20 @@ const Home = () => {
     setFormValues((previous) => ({ ...previous, [name]: value }));
   };
 
-  const handleDragOver = (event) => {
-    event.preventDefault();
+  const handleDragOver = (e) => {
+    e.preventDefault();
+
     setIsDragging(true);
   };
-  const hadnleDrop = (event) => {
-    event.preventDefault();
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+
+    const uploadedImage = Array.from(event.dataTransfer.files).at(0);
+
+    handleUploadedImage(uploadedImage);
+
+    setIsDragging(false);
   };
   const handleDragLeave = () => setIsDragging(false);
 
@@ -97,11 +119,12 @@ const Home = () => {
           handleBrowserClick={handleBrowserClick}
           imageUrl={imageUrl}
           setImageUrl={setImageUrl}
-          handleChanges={handleChanges}
+          handleImageChange={handleImageChange}
           clearImage={clearImage}
           handleDragOver={handleDragOver}
-          hadnleDrop={hadnleDrop}
+          handleDrop={handleDrop}
           handleDragLeave={handleDragLeave}
+          handleSubmit={handleSubmit}
         />
       </div>
     </div>
